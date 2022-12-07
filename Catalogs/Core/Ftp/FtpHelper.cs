@@ -35,8 +35,18 @@ public class FtpHelper
                     result.Add(line);
                 line = await streamReader.ReadLineAsync();
             }
-            
         }
         return result;
+    }
+    /// <summary>
+    /// Загрузать файл
+    /// </summary>
+    /// <param name="name">Имя файла</param>
+    /// <returns>Возвращает содерживое файла в виде массива байт</returns>
+    public async Task<Byte[]> DownloadFile(string name)
+    {
+        using var client = new HttpClient();
+        var fileUri = new Uri(_uri, name);
+        return await client.GetByteArrayAsync(fileUri);
     }
 }
