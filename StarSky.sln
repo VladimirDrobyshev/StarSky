@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Catalogs\Core\Core.csproj", "{B8DBBB3A-2DC9-498D-9CBF-EDE369E6EDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDR3", "Catalogs\GDR3\GDR3.csproj", "{DDF73920-ECF6-4458-9803-0D904B265EB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogs", "Catalogs", "{106B7783-C11A-4178-A902-CB6E6AC16440}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8DBBB3A-2DC9-498D-9CBF-EDE369E6EDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DBBB3A-2DC9-498D-9CBF-EDE369E6EDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DBBB3A-2DC9-498D-9CBF-EDE369E6EDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DBBB3A-2DC9-498D-9CBF-EDE369E6EDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF73920-ECF6-4458-9803-0D904B265EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF73920-ECF6-4458-9803-0D904B265EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF73920-ECF6-4458-9803-0D904B265EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF73920-ECF6-4458-9803-0D904B265EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8DBBB3A-2DC9-498D-9CBF-EDE369E6EDAF} = {106B7783-C11A-4178-A902-CB6E6AC16440}
+		{DDF73920-ECF6-4458-9803-0D904B265EB5} = {106B7783-C11A-4178-A902-CB6E6AC16440}
+	EndGlobalSection
+EndGlobal
