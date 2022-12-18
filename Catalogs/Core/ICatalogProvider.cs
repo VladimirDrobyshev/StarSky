@@ -6,10 +6,14 @@ namespace Core;
 public interface ICatalogProvider
 {
     /// <summary>
+    /// Название каталога
+    /// </summary>
+    public string CatalogName { get; }
+    /// <summary>
     /// Возвращает список имен частей каталога
     /// </summary>
     /// <returns>Возвращает список имен частей каталога</returns>
-    List<string> GetParts();
+    Task<List<string>> GetPartsAsync();
     /// <summary>
     /// Получить часть каталога
     /// </summary>

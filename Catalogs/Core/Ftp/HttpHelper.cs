@@ -1,9 +1,9 @@
 namespace Core.Ftp;
 
 /// <summary>
-/// Вспомогательны класс для работы с FTP
+/// Вспомогательны класс для работы с HttpHelper
 /// </summary>
-public class FtpHelper
+public class HttpHelper
 {
     readonly Uri _uri;
 
@@ -11,10 +11,11 @@ public class FtpHelper
     /// Создает новый экземпляр класса FtpHelper 
     /// </summary>
     /// <param name="uri">Uri FTP ресурса</param>
-    public FtpHelper(Uri uri)
+    public HttpHelper(Uri uri)
     {
         _uri = uri;
     }
+
     /// <summary>
     /// Возвращает список файлов 
     /// </summary>
@@ -25,17 +26,15 @@ public class FtpHelper
         var result = new List<string>();
         using var client = new HttpClient();
         await using var stream = await client.GetStreamAsync(_uri);
-        if (stream != null)
+        using var streamReader = new StreamReader(stream);
+        var line = await streamReader.ReadLineAsync();
+        while (!string.IsNullOrEmpty(line))
         {
-            using var streamReader = new StreamReader(stream);
-            var line = await streamReader.ReadLineAsync();
-            while (!string.IsNullOrEmpty(line))
-            {
-                if (filter(line))
-                    result.Add(line);
-                line = await streamReader.ReadLineAsync();
-            }
+            if (filter(line))
+                result.Add(line);
+            line = await streamReader.ReadLineAsync();
         }
+
         return result;
     }
     /// <summary>
@@ -43,7 +42,7 @@ public class FtpHelper
     /// </summary>
     /// <param name="name">Имя файла</param>
     /// <returns>Возвращает содерживое файла в виде массива байт</returns>
-    public async Task<Byte[]> DownloadFile(string name)
+    public async Task<byte[]> DownloadFile(string name)
     {
         using var client = new HttpClient();
         var fileUri = new Uri(_uri, name);
