@@ -18,7 +18,7 @@
         </TabItem>
         <TabItem Header="Catalogs">
             <ScrollViewer>
-                <ItemsControl Items="{Binding Parts}" />
+                <ItemsRepeater Items="{Binding Parts}"/>
             </ScrollViewer>
         </TabItem>
     </TabControl>
