@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reactive.Concurrency;
-using System.Threading.Tasks;
 using GDR3;
 using ReactiveUI; //TODO VD: Replace straight reference with dll loader
 using StarSky.Models;
