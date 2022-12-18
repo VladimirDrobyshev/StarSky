@@ -1,4 +1,4 @@
-namespace Core.Ftp;
+namespace Core;
 
 /// <summary>
 /// Вспомогательны класс для работы с HttpHelper
@@ -17,25 +17,15 @@ public class HttpHelper
     }
 
     /// <summary>
-    /// Возвращает список файлов 
+    /// Возвращает список файлов на странице
     /// </summary>
-    /// <param name="filter">Фильтр по именам файлов</param>
+    /// <param name="parser">Функиция фильтрации по именам файлов в ссылках</param>
+    /// <param name="extension">Расширение файлов</param>
     /// <returns>Возвращает список файлов с учетом фильтра</returns>
-    public async Task<List<string>> GetFileNames(Predicate<string> filter)
+    public async Task<IEnumerable<string>> GetFileNames(string extension, Func<Stream, string, IEnumerable<string>> parser)
     {
-        var result = new List<string>();
-        using var client = new HttpClient();
-        await using var stream = await client.GetStreamAsync(_uri);
-        using var streamReader = new StreamReader(stream);
-        var line = await streamReader.ReadLineAsync();
-        while (!string.IsNullOrEmpty(line))
-        {
-            if (filter(line))
-                result.Add(line);
-            line = await streamReader.ReadLineAsync();
-        }
-
-        return result;
+        await using var stream = await new HttpClient().GetStreamAsync(_uri);
+        return parser(stream, extension);
     }
     /// <summary>
     /// Загрузать файл

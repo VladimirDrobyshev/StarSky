@@ -13,7 +13,7 @@ public class MainWindowViewModel : ViewModelBase
     readonly StarCatalogModel _model = new(new Gdr3CatalogProvider()); 
         
     public string Greeting => "Welcome to Avalonia!";
-    public List<string>? Parts => _model.Parts;  
+    public IEnumerable<string>? Parts => _model.Parts;  
 
     public MainWindowViewModel()
     {

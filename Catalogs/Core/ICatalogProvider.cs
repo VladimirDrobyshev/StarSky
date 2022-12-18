@@ -13,7 +13,7 @@ public interface ICatalogProvider
     /// Возвращает список имен частей каталога
     /// </summary>
     /// <returns>Возвращает список имен частей каталога</returns>
-    Task<List<string>> GetPartsAsync();
+    Task<IEnumerable<string>> GetPartsAsync();
     /// <summary>
     /// Получить часть каталога
     /// </summary>

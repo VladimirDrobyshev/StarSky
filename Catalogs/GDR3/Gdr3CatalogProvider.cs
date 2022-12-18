@@ -1,5 +1,4 @@
 using Core;
-using Core.Ftp;
 
 namespace GDR3;
 
@@ -15,7 +14,7 @@ public class Gdr3CatalogProvider : ICatalogProvider
 
     public string CatalogName => "GAIA 3";
 
-    public async Task<List<string>> GetPartsAsync() => await _httpHelper.GetFileNames(f => true);
+    public async Task<IEnumerable<string>> GetPartsAsync() => await _httpHelper.GetFileNames(DataFileExtension, HtmlHelper.GetLinks);
     public Task<IList<StarInfo>> GetPartAsync(string partName)
     {
         throw new NotImplementedException();

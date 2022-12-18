@@ -17,7 +17,9 @@
             <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </TabItem>
         <TabItem Header="Catalogs">
-            <ItemsControl Items="{Binding Parts}" />
+            <ScrollViewer>
+                <ItemsControl Items="{Binding Parts}" />
+            </ScrollViewer>
         </TabItem>
     </TabControl>
 </Window>

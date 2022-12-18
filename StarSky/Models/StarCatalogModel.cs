@@ -12,10 +12,10 @@ namespace StarSky.Models;
 public class StarCatalogModel : INotifyPropertyChanged
 {
     readonly ICatalogProvider _provider;
-    List<string>? _parts;
+    IEnumerable<string>? _parts;
 
     public string Name => _provider.CatalogName;
-    public List<string>? Parts
+    public IEnumerable<string>? Parts
     {
         get => _parts;
         private set => SetField(ref _parts, value);
